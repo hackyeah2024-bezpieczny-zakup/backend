@@ -10,7 +10,7 @@ export class UrlsService {
     console.log('CHECKING URL: ', url);
 
     const urlStatus = UrlStatus[
-      UrlStatus[Math.floor(Math.random() * 3 + 1)] as any
+      UrlStatus[Math.floor(Math.random() * 3)] as any
     ] as unknown as UrlStatus;
 
     return plainToInstance(CheckUrlResponseDto, { urlStatus });
