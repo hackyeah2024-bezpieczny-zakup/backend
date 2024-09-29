@@ -15,19 +15,26 @@ Make sure you have the following installed before running the application:
 ## Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/hackyeah2024-bezpieczny-zakup/backend.git
    cd backend
    ```
+
 2. Install dependencies:
+
    ```bash
    yarn install
    ```
+
 3. Configure the PostgreSQL database by creating an `.env` file from the `.env.example`:
+
    ```bash
    cp .env.example .env
    ```
+
    Update the `.env` file with your database settings:
+
    ```env
    DB_TYPE="postgres"
    DB_HOST="localhost"
@@ -38,10 +45,8 @@ Make sure you have the following installed before running the application:
    DB_IS_LOGGING_ENABLED=true
    DB_IS_SYNCHRONIZING_ENABLED=true
    ```
-4. Run database migrations:
-   ```bash
-   yarn typeorm migration:run
-   ```
+
+4. Create database named 'secure_purchase'.
 
 ## Running the Application
 
@@ -49,9 +54,11 @@ To run the backend locally:
 
 1. Ensure PostgreSQL is running.
 2. Start the application:
+
    ```bash
    yarn start:dev
    ```
+
    The backend will be available at `http://localhost:3000`.
 
 ## API Endpoints
@@ -62,13 +69,13 @@ The backend provides several API endpoints to verify websites based on unique id
 
 ## About Us
 
-We are a team passionate about creating solutions that ensure online safety, especially for vulnerable groups such as the elderly. Our goal is to prevent scams and fraudulent activities through advanced verification systems. More about our team will be shared soon!
+We are **Tea Interns**, a team passionate about creating solutions that ensure online safety, especially for vulnerable groups such as the elderly. Our goal is to prevent scams and fraudulent activities through advanced verification systems. More about our team will be shared soon!
 
 ## Authors
 
-- **Maksymilian Przywara** – Team Leader
-- **Piotr Bukowiec** - Backend Developer
-- **Bartosz Szlepecki** - Frontend Developer
+- **Maksymilian Przywara** [**.maksfatslayer**] – Team Leader
+- **Piotr Bukowiec** [**walker91xd**]- Backend Developer
+- **Bartosz Szlepecki** [**iangoldsnaut**] - Frontend Developer
 
 ## License
 
