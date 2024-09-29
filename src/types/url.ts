@@ -1,6 +1,6 @@
 enum UrlStatus {
   VERIFIED,
-  NOT_VERIFIED,
+  // NOT_VERIFIED,
   DANGER,
 }
 

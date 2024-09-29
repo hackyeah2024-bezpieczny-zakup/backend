@@ -10,6 +10,7 @@ import { typeOrmConfigAsync } from './config/typeorm.config';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
+      cache: true,
     }),
     TypeOrmModule.forRootAsync(typeOrmConfigAsync),
     UrlsModule,

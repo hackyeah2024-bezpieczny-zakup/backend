@@ -1,17 +1,19 @@
 import { Injectable } from '@nestjs/common';
 import { CreateCheckUrlDto } from './dto/create-check-url.dto';
-import { UrlStatus } from 'src/types/url';
+// import { UrlStatus } from 'src/types/url';
 import { CheckUrlResponseDto } from './dto/check-url-response.dto';
 import { plainToInstance } from 'class-transformer';
+import { UrlEntity } from './entities/url.entity';
+import { UrlStatus } from 'src/types/url';
 
 @Injectable()
 export class UrlsService {
   async checkUrl({ url }: CreateCheckUrlDto): Promise<CheckUrlResponseDto> {
-    console.log('CHECKING URL: ', url);
+    const isUrlInDb = await UrlEntity.findOneBy({ url });
 
-    const urlStatus = UrlStatus[
-      UrlStatus[Math.floor(Math.random() * 3)] as any
-    ] as unknown as UrlStatus;
+    const urlStatus: UrlStatus = isUrlInDb
+      ? UrlStatus.VERIFIED
+      : UrlStatus.DANGER;
 
     return plainToInstance(CheckUrlResponseDto, { urlStatus });
   }

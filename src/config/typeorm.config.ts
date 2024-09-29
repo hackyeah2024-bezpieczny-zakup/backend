@@ -17,10 +17,8 @@ export const typeOrmConfigAsync: TypeOrmModuleAsyncOptions = {
       password: getEnv<string>('DB_PASSWORD'),
       database: getEnv<string>('DB_NAME'),
       entities: [entitiesPath],
-      //   logging: getEnv<boolean>('DB_IS_LOGGING_ENABLED') ?? true,
-      logging: true,
-      //   synchronize: getEnv<boolean>('DB_IS_SYNCHRONIZING_ENABLED') ?? true,
-      synchronize: true,
+      logging: getEnv<boolean>('DB_IS_LOGGING_ENABLED') ?? false,
+      synchronize: getEnv<boolean>('DB_IS_SYNCHRONIZING_ENABLED') ?? false,
       autoLoadEntities: true,
       retryAttempts: Infinity,
     };
