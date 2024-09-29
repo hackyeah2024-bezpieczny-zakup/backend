@@ -1,73 +1,75 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Safety Purchase Backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## About the Project
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Safety Purchase is a solution designed to protect elderly people from potential scams when shopping online. This Chrome browser extension verifies the credibility of online stores by obtaining their REGON, NIP, or other unique identification numbers to ensure that the store is legitimate and safe for transactions. Depending on the result of the verification, a popup will be displayed when the user opens the store page, informing them whether the store is trustworthy.The backend is built using **NestJS**, with **TypeORM** for database interactions with **PostgreSQL**. The project is managed using **Yarn**.
 
-## Description
+## Requirements
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Make sure you have the following installed before running the application:
+
+- Node.js (v14+)
+- Yarn (v1.22+)
+- PostgreSQL (v12+)
 
 ## Installation
 
-```bash
-$ yarn install
-```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/hackyeah2024-bezpieczny-zakup/backend.git
+   cd backend
+   ```
+2. Install dependencies:
+   ```bash
+   yarn install
+   ```
+3. Configure the PostgreSQL database by creating an `.env` file from the `.env.example`:
+   ```bash
+   cp .env.example .env
+   ```
+   Update the `.env` file with your database settings:
+   ```env
+   DB_TYPE="postgres"
+   DB_HOST="localhost"
+   DB_PORT=5432
+   DB_USERNAME="postgres"
+   DB_PASSWORD=""
+   DB_NAME="secure_purchase"
+   DB_IS_LOGGING_ENABLED=true
+   DB_IS_SYNCHRONIZING_ENABLED=true
+   ```
+4. Run database migrations:
+   ```bash
+   yarn typeorm migration:run
+   ```
 
-## Running the app
+## Running the Application
 
-```bash
-# development
-$ yarn run start
+To run the backend locally:
 
-# watch mode
-$ yarn run start:dev
+1. Ensure PostgreSQL is running.
+2. Start the application:
+   ```bash
+   yarn start:dev
+   ```
+   The backend will be available at `http://localhost:3000`.
 
-# production mode
-$ yarn run start:prod
-```
+## API Endpoints
 
-## Test
+The backend provides several API endpoints to verify websites based on unique identification numbers such as REGON or NIP. Key endpoints include:
 
-```bash
-# unit tests
-$ yarn run test
+- `POST /urls/check` – Verifies the online store based on various criteria such as REGON, NIP, date of domain registration and date of establishment of company. [Not fully implemented yet]
 
-# e2e tests
-$ yarn run test:e2e
+## About Us
 
-# test coverage
-$ yarn run test:cov
-```
+We are a team passionate about creating solutions that ensure online safety, especially for vulnerable groups such as the elderly. Our goal is to prevent scams and fraudulent activities through advanced verification systems. More about our team will be shared soon!
 
-## Support
+## Authors
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- **Maksymilian Przywara** – Team Leader
+- **Piotr Bukowiec** - Backend Developer
+- **Bartosz Szlepecki** - Frontend Developer
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+This project is licensed under the MIT License.
