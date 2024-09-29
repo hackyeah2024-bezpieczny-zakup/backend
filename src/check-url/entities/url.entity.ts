@@ -43,7 +43,7 @@ export class UrlEntity extends BaseEntity implements IUrlEntity {
   createdAt: Date;
 
   @Column({
-    type: 'timestamp with time zone',
+    type: 'text',
   })
   url: string;
 }
